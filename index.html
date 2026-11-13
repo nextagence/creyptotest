@@ -23,6 +23,15 @@ main{flex:1;padding:40px 48px;max-width:1040px}
 h1{font:700 32px/40px Inter,sans-serif}
 .sub{color:var(--mute);margin:8px 0 32px}
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:24px}
+.grid.g4{grid-template-columns:repeat(4,1fr)}
+.pos{color:var(--ok)}.neg{color:var(--err)}
+.sm{all:unset;cursor:pointer;font-size:12px;line-height:16px;font-weight:600;padding:4px 8px;border-radius:8px;background:var(--gold-d);color:var(--acc);margin-right:4px}
+.sm:hover{background:var(--gold);color:#fff}
+.row{display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end}
+.row label{flex:1;min-width:160px}
+.tw{overflow-x:auto}
+td.num,th.num{text-align:right;white-space:nowrap}
+.card small.sub2{margin-top:4px;font-size:12px}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:24px}
 .card small{color:var(--mute);font-size:14px;display:block}
 .card .n{font:700 32px/40px Inter,sans-serif;margin-top:8px}
@@ -43,6 +52,77 @@ a{color:var(--acc)}
 #log{margin-top:16px;font-size:14px;white-space:pre-wrap}
 .ok{color:var(--ok)}.err{color:var(--err)}
 .hide{display:none}
+.lp-head{display:flex;align-items:center;gap:16px;margin-bottom:24px;color:var(--mute)}
+.chip{font:700 14px/24px Inter,sans-serif;letter-spacing:.04em;color:var(--acc);background:var(--gold-d);border:1px solid var(--gold);border-radius:999px;padding:4px 16px}
+.lp-card{padding:0;overflow:hidden}
+.lp-net{display:flex;justify-content:space-between;padding:16px 24px;border-bottom:1px solid var(--line);font-size:14px;color:var(--mute)}
+.lp-net b{color:var(--text);font-size:16px}
+.lp-row{display:flex;align-items:center;gap:16px;padding:16px 24px;border-bottom:1px solid var(--line);cursor:pointer}
+.lp-row:last-child{border-bottom:0}
+.lp-row:hover{background:var(--panel2)}
+.lp-row.off{cursor:not-allowed;opacity:.55}
+.lp-row.off:hover{background:transparent}
+.lp-ico{width:48px;height:48px;flex:none;border-radius:12px;background:var(--panel2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;font:700 16px/24px Inter,sans-serif}
+.lp-txt{flex:1}
+.lp-txt b{display:flex;align-items:center;gap:8px;font-weight:600}
+.lp-txt small{display:block;color:var(--mute);font-size:14px;line-height:20px;margin-top:4px}
+.lp-tag{font:600 12px/16px Inter,sans-serif;color:var(--mute);background:var(--panel2);border-radius:8px;padding:4px 8px}
+.pempty{border:1px dashed var(--line);border-radius:12px;padding:16px;color:var(--mute);font-size:14px;line-height:20px}
+select{background:var(--panel2);border:1px solid var(--line);border-radius:12px;padding:12px 16px;color:var(--text);font:inherit;width:100%}
+.md{display:flex;align-items:center;gap:16px;padding:16px 24px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);cursor:pointer}
+.md:hover{background:var(--panel2)}
+.md.on{border-color:var(--gold);background:var(--gold-d)}
+.md.off{opacity:.5;cursor:not-allowed}
+.md .ico{width:48px;height:48px;flex:none;border-radius:12px;background:var(--panel2);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--mute)}
+.md.on .ico{background:var(--gold);color:#fff}
+.md .t{flex:1}.md .t b{display:flex;gap:8px;align-items:center;font-weight:600}
+.md .t small{display:block;color:var(--mute);font-size:14px;line-height:20px;margin-top:4px}
+.md .rd{width:24px;height:24px;border-radius:50%;border:2px solid var(--line);flex:none}
+.md.on .rd{border:7px solid var(--acc)}
+.wbar .btn{padding:8px 16px}
+.wlist{max-height:520px;overflow-y:auto;border:1px dashed var(--line);border-radius:var(--r);min-height:96px;margin-bottom:8px}
+.wempty{padding:32px;text-align:center;color:var(--mute);font-size:14px}
+.warn{background:#251a4d66;border:1px solid var(--gold);border-radius:12px;padding:16px;font-size:14px;line-height:20px;color:var(--mute)}
+.warn b{color:var(--acc)}
+.wcard{display:flex;align-items:center;gap:16px;padding:16px 24px;border:1px solid var(--line);border-radius:var(--r);margin:8px;background:var(--panel)}
+.wcard.on{border-color:var(--gold)}
+.wcard input{width:20px;height:20px;padding:0;flex:none;accent-color:var(--gold)}
+.wcard .i{flex:1}
+.wcard .nm{display:flex;align-items:center;gap:8px;font-weight:600}
+.wcard .ad{font:400 14px/20px ui-monospace,Menlo,monospace;color:var(--mute);margin-top:4px}
+.wcard .bl{font-size:14px;color:var(--mute);margin-top:4px}
+.ic{all:unset;cursor:pointer;color:var(--mute);padding:8px;border-radius:8px;font-size:16px}
+.ic.mk{color:var(--text);font-size:14px;white-space:nowrap}
+.ic:hover{color:var(--text);background:var(--panel2)}
+.wrow{display:flex;align-items:center;gap:16px;padding:12px 16px;border-bottom:1px solid var(--line);font-size:14px}
+.wrow:last-child{border-bottom:0}
+.wrow input{width:16px;height:16px;padding:0}
+.wrow .a{flex:1;font-family:ui-monospace,Menlo,monospace}
+.wrow .b{color:var(--mute);min-width:96px;text-align:right}
+.b0h{font:600 18px/24px Inter,sans-serif;margin-bottom:16px;display:flex;gap:8px;align-items:center}
+.b0box{display:flex;justify-content:space-between;gap:16px;padding:16px 24px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r);margin-bottom:24px}
+.b0box .gold,.gold{color:var(--acc);font-weight:600}
+.b0grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
+.b0grid input{width:100%;margin-top:8px}
+.b0grid small,.mut{color:var(--mute);font-size:12px;line-height:16px;display:block;margin-top:8px}
+.b0l{display:flex;gap:8px;align-items:center;font-size:14px}
+.b0sep{border-top:1px solid var(--line);margin:24px 0}
+.b0t{color:var(--mute);margin-bottom:16px}
+.q{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;border:1px solid var(--gold);color:var(--acc);font:600 10px/16px Inter,sans-serif;cursor:help;flex:none}
+.opt{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:8px 0}
+.opt small{display:block;color:var(--mute);font-size:12px;line-height:16px;margin-top:4px}
+.sw{width:48px;height:24px;border-radius:999px;background:var(--panel2);border:1px solid var(--line);position:relative;cursor:pointer;flex:none}
+.sw::after{content:'';position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:#f5efe0;transition:left .15s}
+.sw.on{background:var(--gold)}.sw.on::after{left:26px}
+.seg{gap:16px;flex-wrap:nowrap;margin-top:8px}
+.tabs{display:flex;background:var(--panel2);border-radius:12px;padding:4px;margin-bottom:16px}
+.tabs button{all:unset;cursor:pointer;flex:1;text-align:center;padding:8px 16px;border-radius:8px;color:var(--mute);font-size:14px;font-weight:500}
+.tabs button.on{background:var(--panel);color:var(--text)}
+.tabbody{margin-bottom:16px}.tabbody label{margin-top:8px}.tabbody label.dis{opacity:.5}
+.sumr{display:flex;justify-content:space-between;padding:8px 0;color:var(--mute)}.sumr b{color:var(--text);font-weight:500}
+@media(max-width:900px){.b0grid{grid-template-columns:1fr}}
+.lp-arr{color:var(--mute);font-size:20px}
+.lp-row:not(.off):hover .lp-arr{color:var(--acc)}
 </style>
 </head>
 <body>
@@ -56,6 +136,7 @@ a{color:var(--acc)}
   <nav>
     <button data-p="dash" class="on">Панель</button>
     <button data-p="launch">Запуск токена</button>
+    <button data-p="portfolio">Портфель и PnL</button>
     <button data-p="settings">Настройки</button>
   </nav>
 </aside>
@@ -76,8 +157,59 @@ a{color:var(--acc)}
   </section>
 
   <section id="launch" class="hide">
+    <div id="lp-pick">
+      <div class="lp-head"><span>Стиль</span><span class="chip">НОВЫЙ ЗАПУСК</span></div>
+      <div class="card lp-card">
+        <div class="lp-net"><b>Solana</b><span>SOL</span></div>
+        <div id="lp-list"></div>
+      </div>
+    </div>
+    <div id="lp-form" class="hide">
+    <div class="lp-head"><button class="btn ghost" id="lp-back" type="button">← Назад</button><span>Стиль</span><span class="chip" id="lp-cur"></span></div>
     <h1>Запуск токена</h1>
-    <p class="sub">Один кошелёк: создание токена на pump.fun и покупка создателем</p>
+    <p class="sub" id="lp-sub">Один кошелёк: создание токена и покупка создателем</p>
+    <div class="card" id="preset" style="margin-bottom:24px">
+      <div class="row" style="align-items:center">
+        <div style="flex:1;min-width:240px">
+          <small style="color:var(--acc);font-weight:600;margin-bottom:8px;display:block">Пресет</small>
+          <div id="pempty" class="pempty">Сохранённых пресетов пока нет. Настрой кошельки и параметры, затем нажми «Создать пресет».</div>
+          <select id="pset" class="hide"></select>
+        </div>
+        <button class="btn ghost" id="psave" type="button">Создать пресет</button>
+        <button class="btn ghost" id="papply" type="button" disabled>Применить</button>
+        <button class="btn ghost hide" id="pdel" type="button">Удалить</button>
+      </div>
+    </div>
+    <div id="modes" style="display:grid;gap:16px;margin-bottom:24px"></div>
+    <div class="row wbar" style="margin-bottom:16px">
+      <button class="btn ghost" id="w-dev" type="button" title="Создать локальный DEV-кошелёк. Если выбран — запуск подписывается им, без Phantom">+ DEV</button>
+      <button class="btn ghost" id="w-new" type="button" title="Создать N снайперских кошельков">Создать</button>
+      <button class="btn ghost" id="w-bal" type="button" title="Обновить балансы всех кошельков">Мои кошельки</button>
+      <button class="btn ghost" id="w-fund" type="button" title="Отправить SOL из Phantom на выбранные кошельки">Пополнить</button>
+      <button class="btn ghost" id="w-imp" type="button" title="Импорт приватных ключей (base58), по одному в строке">Импорт</button>
+      <button class="btn ghost" id="w-exp" type="button" title="Скачать выбранные кошельки в JSON" disabled>Экспорт</button>
+    </div>
+    <div class="card hide" id="gen" style="margin-bottom:16px">
+      <div class="warn"><b>Экспортируйте кошельки!</b> Используйте формат JSON. Ключи хранятся только в этом браузере: очистка данных сайта или смена устройства сделают их недоступными. Ваша копия поможет добраться до средств.</div>
+      <div class="row" style="justify-content:space-between;align-items:center;margin:24px 0 16px"><span>Генерировать кошельки</span><small id="gfree" style="color:var(--mute);font-size:14px"></small></div>
+      <div class="row" style="flex-wrap:nowrap;align-items:stretch">
+        <button class="btn ghost" id="gminus" type="button" style="padding:12px 24px">−</button>
+        <input id="gn" type="number" min="1" max="25" value="5" style="flex:1;text-align:center">
+        <button class="btn ghost" id="gplus" type="button" style="padding:12px 24px">+</button>
+      </div>
+      <button class="btn" id="ggo" type="button" style="display:block;margin-top:16px">Сгенерировать кошельки (5)</button>
+    </div>
+    <div class="row" id="usebar" style="align-items:center;margin-bottom:16px;gap:16px">
+      <span>Использовать снайперов</span>
+      <input id="usen" type="number" min="0" value="5" style="width:96px;text-align:center">
+      <small id="usemax" style="color:var(--mute);font-size:14px"></small>
+      <label style="flex-direction:row;align-items:center;gap:8px;min-width:0;flex:none"><input id="userand" type="checkbox" style="width:16px;height:16px;padding:0"> случайные</label>
+      <button class="btn ghost" id="usego" type="button" style="padding:8px 16px">Выбрать</button>
+    </div>
+    <div class="row" style="justify-content:space-between;margin-bottom:8px"><small id="w-cnt" style="color:var(--mute)">Кошельки (0)</small><small id="w-sel" style="color:var(--mute)">0 выбрано</small></div>
+    <div class="wlist" id="wlist"></div>
+    <p class="sub" style="margin:8px 0 24px;font-size:12px;line-height:16px">Приватные ключи хранятся в localStorage этого браузера в открытом виде. Не используй основной кошелёк, держи на них только рабочие суммы.</p>
+    <div id="b0" class="hide" style="margin-bottom:24px"></div>
     <form id="f">
       <label>Название<input name="name" required maxlength="32"></label>
       <label>Тикер<input name="symbol" required maxlength="10"></label>
@@ -86,12 +218,52 @@ a{color:var(--acc)}
       <label>Twitter<input name="twitter" placeholder="https://x.com/..."></label>
       <label>Telegram<input name="telegram" placeholder="https://t.me/..."></label>
       <label>Сайт<input name="website"></label>
-      <label>Dev buy, SOL<input name="amount" type="number" step="0.001" min="0" value="0.1"></label>
-      <label>Slippage, %<input name="slippage" type="number" min="1" max="50" value="10"></label>
-      <label>Priority fee, SOL<input name="fee" type="number" step="0.0001" min="0" value="0.0005"></label>
+      <label class="nb0">Dev buy, SOL<input name="amount" type="number" step="0.001" min="0" value="0.1"></label>
+      <label class="nb0">Slippage, %<input name="slippage" type="number" min="1" max="50" value="10"></label>
+      <label class="nb0">Priority fee, SOL<input name="fee" type="number" step="0.0001" min="0" value="0.0005"></label>
+      <div class="full hide" id="snp" style="display:none;grid-template-columns:repeat(3,1fr);gap:16px 24px">
+        <label>Покупка на снайпера, SOL<input name="snAmt" type="number" step="0.001" min="0" value="0.05"></label>
+        <label>Задержка от, сек<input name="snMin" type="number" step="0.1" min="0" value="1"></label>
+        <label>Задержка до, сек<input name="snMax" type="number" step="0.1" min="0" value="3"></label>
+      </div>
       <div class="full"><button class="btn" id="go" type="submit">Запустить</button></div>
     </form>
     <div id="log"></div>
+    </div>
+  </section>
+
+  <section id="portfolio" class="hide">
+    <h1>Портфель и PnL</h1>
+    <p class="sub">Токены на кошельке и учёт сделок, сделанных через этот сайт</p>
+    <div class="grid g4">
+      <div class="card"><small>Стоимость токенов, SOL</small><div class="n" id="p-val">—</div><small class="sub2" id="p-val-usd"></small></div>
+      <div class="card"><small>Вложено, SOL</small><div class="n" id="p-inv">—</div><small class="sub2" id="p-inv-usd"></small></div>
+      <div class="card"><small>Выручка от продаж, SOL</small><div class="n" id="p-rev">—</div><small class="sub2" id="p-rev-usd"></small></div>
+      <div class="card"><small>PnL, SOL</small><div class="n" id="p-pnl">—</div><small class="sub2" id="p-pnl-usd"></small></div>
+    </div>
+    <div class="card" style="margin-bottom:24px">
+      <small style="margin-bottom:8px">Накопленный денежный поток по сделкам, SOL</small>
+      <svg id="chart" viewBox="0 0 600 160" style="width:100%;height:160px"></svg>
+    </div>
+    <div class="card" style="margin-bottom:24px">
+      <small style="margin-bottom:16px">Купить токен по mint</small>
+      <div class="row">
+        <label>Mint<input id="bmint" placeholder="адрес токена"></label>
+        <label style="max-width:160px">SOL<input id="bamt" type="number" step="0.001" min="0" value="0.05"></label>
+        <label style="max-width:140px">Slippage, %<input id="tslip" type="number" min="1" max="50" value="15"></label>
+        <label style="max-width:160px">Priority fee, SOL<input id="tfee" type="number" step="0.0001" min="0" value="0.0005"></label>
+        <button class="btn" id="buybtn">Купить</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="row" style="justify-content:space-between;margin-bottom:16px">
+        <small>Позиции</small>
+        <button class="btn ghost" id="preload">Обновить</button>
+      </div>
+      <div class="tw"><table><thead><tr><th>Токен</th><th class="num">Баланс</th><th class="num">Цена, SOL</th><th class="num">Стоимость</th><th class="num">Вложено</th><th class="num">Выручка</th><th class="num">PnL</th><th>Продать</th></tr></thead><tbody id="ptb"></tbody></table></div>
+      <div id="pmsg" style="margin-top:16px;font-size:14px"></div>
+      <p class="sub" style="margin:16px 0 0;font-size:12px;line-height:16px">PnL считается по сделкам с этого сайта (с комиссиями). Покупки, сделанные в других местах, показаны как баланс без PnL. Цены: DexScreener.</p>
+    </div>
   </section>
 
   <section id="settings" class="hide">
