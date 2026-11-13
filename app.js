@@ -16,7 +16,7 @@ async function refresh(){
   try{
     const sol=(await conn().getBalance(pubkey))/W.LAMPORTS_PER_SOL;
     $('#bal').textContent=sol.toFixed(4)+' SOL';$('#d-bal').textContent=sol.toFixed(4);
-  }catch(e){$('#bal').textContent='RPC ошибка'}
+  }catch(e){console.error('RPC',e);$('#bal').textContent='RPC ошибка'}
 }
 function renderHist(){
   const h=LS.get('hist',[]);
@@ -28,18 +28,31 @@ function renderHist(){
 }
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
+function setWallet(pk){
+  pubkey=pk;
+  const a=pk.toBase58();
+  $('#connect').textContent=a.slice(0,4)+'…'+a.slice(-4);
+  refresh();
+}
 $('#connect').onclick=async()=>{
   const p=provider();
   if(!p?.isPhantom){window.open('https://phantom.app','_blank');return}
-  try{
-    const r=await p.connect();
-    pubkey=r.publicKey;
-    $('#connect').textContent=pubkey.toBase58().slice(0,4)+'…'+pubkey.toBase58().slice(-4);
-    refresh();
-  }catch{}
+  try{setWallet((await p.connect()).publicKey)}catch{}
 };
 $('#rpc').value=LS.get('rpc','');
-$('#save').onclick=()=>{LS.set('rpc',$('#rpc').value.trim());refresh()};
+$('#save').onclick=async()=>{
+  const v=$('#rpc').value.trim(),m=$('#rpcmsg');
+  if(v&&!/^https:\/\//.test(v)){m.className='err';m.textContent='Ссылка должна начинаться с https://';return}
+  LS.set('rpc',v);
+  m.className='';m.textContent='Проверяю…';
+  try{
+    await conn().getLatestBlockhash();
+    m.className='ok';m.textContent='Сохранено, RPC работает';
+  }catch(e){
+    m.className='err';m.textContent='RPC не отвечает ('+(e.message||e)+'). Проверь ссылку и правила CSP в vercel.json.';
+  }
+  refresh();
+};
 
 const log=(m,c='')=>{$('#log').innerHTML=`<span class="${c}">${m}</span>`};
 
@@ -81,3 +94,7 @@ $('#f').onsubmit=async e=>{
   btn.disabled=false;
 };
 renderHist();
+(async()=>{
+  const p=provider();
+  if(p?.isPhantom){try{setWallet((await p.connect({onlyIfTrusted:true})).publicKey)}catch{}}
+})();
